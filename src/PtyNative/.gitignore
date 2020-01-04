@@ -1,0 +1,11 @@
+*.log
+*.bat
+*.o
+*.d
+*.exe
+*.ion
+*.jmp
+/tests
+/v*.*/
+set_vars_user.cmd
+cmake-build-*/
