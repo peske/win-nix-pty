@@ -2,7 +2,7 @@
 
 Windows emulated *nix PTY
 
-# Resources
+# Acknowledgements
 
 The project is inspired by [mintty](https://github.com/mintty/mintty) (Copyright (c) 2008-13 Andy Koppe, 2015-18 Thomas Wolff) and [ConEmu cygwin-connector](https://github.com/Maximus5/cygwin-connector/) (Copyright (c) 2015-present Maximus5).
 
