@@ -13,8 +13,8 @@ namespace Test
         {
             using (var terminal = new Pty(PtyBuild.Cygwin))
             {
-                SpawnCygwinBash(terminal);
-                //SpawnGitBash(terminal);
+                //SpawnCygwinBash(terminal);
+                SpawnGitBash(terminal);
                 // ReSharper disable once AssignmentIsFullyDiscarded
                 _ = ReadOutputAsync(terminal);
                 
@@ -30,12 +30,13 @@ namespace Test
             {"HOME", @"C:\Users\fatdragon"}
         };
 
+        // ReSharper disable once UnusedMember.Local
         private static void SpawnGitBash(Pty terminal)
         {
             var envVars = GetUsualEnvVars();
             envVars["PATH"] = @"C:\Program Files\Git\usr\bin;%PATH%";
 
-            terminal.Spawn(@"C:\Program Files\Git\bin\bash.exe", logLevel: LogLevel.Trace, sysLog: true,
+            terminal.Spawn(@"C:\Program Files\Git\bin\bash.exe", "-i -l", logLevel: LogLevel.Trace, sysLog: true,
                 environmentVariables: envVars);
         }
 
