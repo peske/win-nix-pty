@@ -5,7 +5,6 @@
       <w>cmdin</w>
       <w>cmdout</w>
       <w>cout</w>
-      <w>cygwinptynative</w>
       <w>envs</w>
       <w>errcount</w>
       <w>errno</w>
