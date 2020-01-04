@@ -187,28 +187,28 @@ static BOOL WINAPI ctrl_handler_routine(DWORD ctrl_type) {
     return FALSE;
 }
 
-static void ensure_terminal() {
-    auto hwnd = GetConsoleWindow();
-    if (hwnd) {
-        log(LOG_DEBUG, "[ensure_terminal] Console window already exists.");
-        return;
-    }
-    log(LOG_DEBUG, "[ensure_terminal] Console isn't allocated. Attempting to allocate...");
-    if (!AllocConsole()) {
-        log_win_error(LOG_ERROR, "[ensure_terminal] 'AllocConsole' call failed.");
-        return;
-    }
-    log(LOG_DEBUG, "[ensure_terminal] Console allocated successfully.");
-    hwnd = GetConsoleWindow();
-    if (!hwnd) {
-        log_win_error(LOG_ERROR, "[ensure_terminal] 'GetConsoleWindow' call failed although the console is allocated successfully.");
-        return;
-    }
-    if (ShowWindow(hwnd, SW_HIDE))
-        log(LOG_DEBUG, "[ensure_terminal] Console window was visible, and now it's hidden.");
-    else
-        log(LOG_DEBUG, "[ensure_terminal] Console window was hidden, and remained hidden.");
-}
+//static void ensure_terminal() {
+//    auto hwnd = GetConsoleWindow();
+//    if (hwnd) {
+//        log(LOG_DEBUG, "[ensure_terminal] Console window already exists.");
+//        return;
+//    }
+//    log(LOG_DEBUG, "[ensure_terminal] Console isn't allocated. Attempting to allocate...");
+//    if (!AllocConsole()) {
+//        log_win_error(LOG_ERROR, "[ensure_terminal] 'AllocConsole' call failed.");
+//        return;
+//    }
+//    log(LOG_DEBUG, "[ensure_terminal] Console allocated successfully.");
+//    hwnd = GetConsoleWindow();
+//    if (!hwnd) {
+//        log_win_error(LOG_ERROR, "[ensure_terminal] 'GetConsoleWindow' call failed although the console is allocated successfully.");
+//        return;
+//    }
+//    if (ShowWindow(hwnd, SW_HIDE))
+//        log(LOG_DEBUG, "[ensure_terminal] Console window was visible, and now it's hidden.");
+//    else
+//        log(LOG_DEBUG, "[ensure_terminal] Console window was hidden, and remained hidden.");
+//}
 
 #ifdef USE_MINTTY_CONF
 static void __unused slave_term_config(termios& attr) {
@@ -559,7 +559,7 @@ int main(int argc, char** argv) {
             else
                 logf(LOG_DEBUG, "[main] Command pipes specified: h_cin = %i, h_cout = %i.", h_cin, h_cout);
         }
-        ensure_terminal();
+//        ensure_terminal();
     }
     if (argc < 1) {
         printf("Malformed arguments. Shell executable name is missing.\n\n");
