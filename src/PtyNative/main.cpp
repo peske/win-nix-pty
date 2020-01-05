@@ -211,7 +211,7 @@ static BOOL WINAPI ctrl_handler_routine(DWORD ctrl_type) {
 //}
 
 #ifdef USE_MINTTY_CONF
-static void __unused slave_term_config(termios& attr) {
+static void slave_term_config(termios& attr) {
     log(LOG_DEBUG, "[slave_term_config1] Using Mintty terminal configuration.");
     attr.c_cc[VERASE] = CDEL;
     attr.c_iflag |= IXANY | IMAXBEL; // NOLINT(hicpp-signed-bitwise)
